@@ -29,10 +29,14 @@
       // border-radius: 5px;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
+      background-color: #1a1c21;
       
       &:hover {
-        background-color: #1a1c21;
+        background-color: #21232a;
         // color: #ba9e00;
+        // padding-bottom: 15px;
+        // position: absolute;
+        // transform: translateY(0px)
       }
     }
 

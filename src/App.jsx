@@ -12,34 +12,39 @@ let odometerHistory = [];
 
 function App() {
 
-  // const [page, setPage] = useState('startPage')
-
-  // function startBtnHandleClick() {
-  //   // setPage('workPage')
-  //   document.location.pathname = '/work';
-  // }
-
-  // function backBtnHandleClick() {
-  //   // setPage('startPage')
-  //   document.location.pathname = '/home';
-  // }
+  class Record {
+    constructor(value, date, work) {
+      this.value = value;
+      this.date = date;
+      this.work = work
+    }
+  }
 
   const [odometer, setOdometer] = useState(0);
   
-  function saveOdometer(event) {
-    // event.preventDefault();
-    // odometerHistory.push();
-    odometerHistory.push(event.target.value);
-    // setOdometer(event.target.value);
-    setOdometer(odometerHistory[odometerHistory.length - 1])
-    console.log(odometerHistory)
-    getNowDate()
-  }
+  // function saveOdometer() {
+    
+  //   getNowDate()
+  // }
 
   const [date, setDate] = useState(new Date().toLocaleDateString());
 
   function getNowDate() {
     setDate(new Date().toLocaleDateString())
+
+    return date;
+  }
+
+  function handleOdometerSubmit(event) {
+    event.preventDefault();
+    console.log('submitting')
+    let input = Array.from(event.target.elements)[0]
+    let textarea = Array.from(event.target.elements)[1]
+    // console.log(input.value)
+    odometerHistory.push(new Record(input.value, getNowDate(), textarea.value))
+    // odometerHistory.push({value: input.value, date: getNowDate()})
+    setOdometer(odometerHistory[odometerHistory.length - 1].value)
+    console.log(odometerHistory)
   }
 
   return (
@@ -49,34 +54,13 @@ function App() {
         <main className='main'>
           <Routes>
             <Route path='' element={<StartPage odometer={odometer} date={date} />} />
-            <Route path='/work' element={<WorkPage odometer={odometer} onChange={saveOdometer}/>} />
+            <Route path='/work' element={<WorkPage odometer={odometer} odometerHistory={odometerHistory} onSubmit={handleOdometerSubmit}/>} />
             <Route path='/info' element={<Info />} />
           </Routes>
         </main>
       </div>
     </BrowserRouter>
   )
-  
-  // if (page === 'startPage') {
-  //   return (
-  //     <div className='App'>
-  //       <Header />
-  //       <main className='main'>
-  //         <StartPage odometer={odometer} date={date} onClick={startBtnHandleClick}></StartPage>
-  //       </main>
-  //     </div>
-  //   )
-  // } 
-  // if (page === 'workPage') {
-  //   return (
-  //     <div className='App'> 
-  //       <Header />
-  //       <main className='main'>
-  //         <WorkPage odometer={odometer} onClick={backBtnHandleClick} onChange={saveOdometer}></WorkPage>
-  //       </main>
-  //     </div>
-  //   )
-  // }
 }
 
 
