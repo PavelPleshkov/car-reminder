@@ -6,7 +6,7 @@ import NavButton from '../pageComponents/Button';
 // import { NavLink } from 'react-router-dom';
 
 
-function StartPage({odometer, date}) {
+function StartPage({odometer, lastDate}) {
 
   return (
     <div className={s.startPage}>
@@ -16,7 +16,7 @@ function StartPage({odometer, date}) {
       {/* <StartButton onClick={onClick}></StartButton> */}
       {/* <NavLink to='/work' className={({isActive})=> isActive ? s.active : undefined}>Work</NavLink> */}
       <NavButton className='startBtn' path='/work' text='Add new record' />
-      <p className={s.lastOdometer}>Last odometer: {odometer} km - {date}</p>
+      <p className={s.lastOdometer}>Last record: {odometer} km   {lastDate}</p>
     </div>
   )
 }

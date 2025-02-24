@@ -21,13 +21,8 @@ function App() {
   }
 
   const [odometer, setOdometer] = useState(0);
-  
-  // function saveOdometer() {
-    
-  //   getNowDate()
-  // }
-
   const [date, setDate] = useState(new Date().toLocaleDateString());
+  const [work, setWork] = useState('none')
 
   function getNowDate() {
     setDate(new Date().toLocaleDateString())
@@ -37,14 +32,19 @@ function App() {
 
   function handleOdometerSubmit(event) {
     event.preventDefault();
-    console.log('submitting')
-    let input = Array.from(event.target.elements)[0]
-    let textarea = Array.from(event.target.elements)[1]
+    console.log('submitting');
+    let input = Array.from(event.target.elements)[0];
+    let textarea = Array.from(event.target.elements)[1];
     // console.log(input.value)
-    odometerHistory.push(new Record(input.value, getNowDate(), textarea.value))
+    // setOdometer(input.value);
+    // setWork(textarea.value);
+    // odometerHistory.push(new Record(odometer, getNowDate(), work));
+    odometerHistory.push(new Record(input.value, getNowDate(), textarea.value));
     // odometerHistory.push({value: input.value, date: getNowDate()})
-    setOdometer(odometerHistory[odometerHistory.length - 1].value)
-    console.log(odometerHistory)
+    // setOdometer(odometerHistory[odometerHistory.length - 1].value)
+    setOdometer(input.value);
+    setWork(textarea.value);
+    console.log(odometerHistory);
   }
 
   return (
@@ -53,7 +53,7 @@ function App() {
         <Header />
         <main className='main'>
           <Routes>
-            <Route path='' element={<StartPage odometer={odometer} date={date} />} />
+            <Route path='' element={<StartPage odometer={odometer} lastDate={odometer ? odometerHistory[odometerHistory.length - 1].date : ''} />} />
             <Route path='/work' element={<WorkPage odometer={odometer} odometerHistory={odometerHistory} onSubmit={handleOdometerSubmit}/>} />
             <Route path='/info' element={<Info />} />
           </Routes>

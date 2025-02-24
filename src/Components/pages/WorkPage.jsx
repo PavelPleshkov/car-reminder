@@ -6,6 +6,7 @@ import NavButton from '../pageComponents/Button';
 
 
 function WorkPage({odometer, odometerHistory, onSubmit}) {
+  let i=1;
 
   return (
     <div className={s.workPage}>
@@ -19,8 +20,15 @@ function WorkPage({odometer, odometerHistory, onSubmit}) {
         {/* <Odometer onChange={saveOdometer}></Odometer> */}
         <Odometer className={s.odometer} odometer={odometer} onSubmit={onSubmit}></Odometer>
         {/* <Odometer onChange={saveOdometer} value={odometer}></Odometer> */}
-        <p>last odometer value: {odometer}</p>
-        <div>{odometerHistory.at(-1).work}</div>
+        <p>
+          Last odometer value: {odometer}
+        </p>
+        {/* <p className={s.lastRecord}>
+          Last work: {odometerHistory.at(-1) ? odometerHistory.at(-1).work : 'none'}
+        </p> */}
+        <div className={s.records}>
+          {odometerHistory.map(record => <div className={s.record} key={i++}><p>{record.value}</p><p>{record.date}</p><p>{record.work}</p></div>).reverse()}
+        </div>
       </div>
     </div>
   )

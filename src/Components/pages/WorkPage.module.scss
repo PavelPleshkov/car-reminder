@@ -22,4 +22,24 @@
       height: 100px;
     }
   }
+
+  .lastRecord {
+    white-space: pre-wrap;
+  }
+
+  .records {
+    background-color: #524535;
+    margin-top: 20px;
+
+    .record {
+      border: 1px solid #fff;
+      padding: 5px;
+      // margin: 0;
+
+      p {
+        margin: 0;
+        white-space: pre-wrap;
+      }
+    }
+  }
 }
