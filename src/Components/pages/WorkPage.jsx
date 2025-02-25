@@ -15,7 +15,7 @@ function WorkPage({odometer, odometerHistory, onSubmit}) {
       </div> */}
       {/* <BackButton onClick={onClick}></BackButton> */}
       {/* <NavLink to='/' className={({isActive})=> isActive ? s.active : undefined}>Home</NavLink> */}
-      <NavButton className='backBtn' path='/car-reminder/' text='Back to Start' />
+      <NavButton className='backBtn' path='/car-reminder' text='Back to Start' />
       <div className="workPlace">
         {/* <Odometer onChange={saveOdometer}></Odometer> */}
         <Odometer className={s.odometer} odometer={odometer} onSubmit={onSubmit} />

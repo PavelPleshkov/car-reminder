@@ -2,7 +2,7 @@
 import './App.scss';
 import Header from './Components/pageComponents/Header';
 import Info from './Components/pages/Info';
-import StartPage from './Components/pages/StartPage';
+import HomePage from './Components/pages/HomePage';
 import WorkPage from './Components/pages/WorkPage';
 
 import {useState} from 'react';
@@ -56,7 +56,8 @@ function App() {
         <Header />
         <main className='main'>
           <Routes>
-            <Route path='/car-reminder' element={<StartPage odometer={odometer} lastDate={odometer ? odometerHistory[odometerHistory.length - 1].date : ''} />} />
+            <Route path='/car-reminder' element={<div>Welcome to the Car Reminder App<p>Use tabs above to get experience</p></div>} />
+            <Route path='/car-reminder/home' element={<HomePage odometer={odometer} lastDate={odometer ? odometerHistory[odometerHistory.length - 1].date : ''} />} />
             <Route path='/car-reminder/work' element={<WorkPage odometer={odometer} odometerHistory={odometerHistory} onSubmit={handleOdometerSubmit}/>} />
             <Route path='/car-reminder/info' element={<Info odometer={odometer} lastWork={work}/>} />
           </Routes>

@@ -1,15 +1,15 @@
 // import startButtonIcon from '../../images/wheel-icon3.png';
-import s from './StartPage.module.scss'
+import s from './HomePage.module.scss'
 
 import NavButton from '../pageComponents/NavButton';
 
 // import { NavLink } from 'react-router-dom';
 
 
-function StartPage({odometer, lastDate}) {
+function HomePage({odometer, lastDate}) {
 
   return (
-    <div className={s.startPage}>
+    <div className={s.homePage}>
       {/* <div>
         Start Page
       </div> */}
@@ -33,4 +33,4 @@ function StartPage({odometer, lastDate}) {
 //   )
 // }
 
-export default StartPage;
+export default HomePage;
