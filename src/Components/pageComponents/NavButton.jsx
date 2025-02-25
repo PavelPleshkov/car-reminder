@@ -1,4 +1,4 @@
-import s from './Button.module.scss';
+import s from './NavButton.module.scss';
 
 import { NavLink } from 'react-router-dom';
 

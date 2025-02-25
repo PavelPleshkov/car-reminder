@@ -1,7 +1,7 @@
 // import startButtonIcon from '../../images/wheel-icon3.png';
 import s from './StartPage.module.scss'
 
-import NavButton from '../pageComponents/Button';
+import NavButton from '../pageComponents/NavButton';
 
 // import { NavLink } from 'react-router-dom';
 

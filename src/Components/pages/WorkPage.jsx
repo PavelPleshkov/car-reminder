@@ -1,12 +1,12 @@
 import s from './WorkPage.module.scss';
+import sBtnSave from './../pageComponents/NavButton.module.scss'
 
-import NavButton from '../pageComponents/Button';
+import NavButton from '../pageComponents/NavButton';
 
 // import { NavLink } from 'react-router-dom';
 
 
 function WorkPage({odometer, odometerHistory, onSubmit}) {
-  let i=1;
 
   return (
     <div className={s.workPage}>
@@ -18,7 +18,7 @@ function WorkPage({odometer, odometerHistory, onSubmit}) {
       <NavButton className='backBtn' path='/' text='Back to Start' />
       <div className="workPlace">
         {/* <Odometer onChange={saveOdometer}></Odometer> */}
-        <Odometer className={s.odometer} odometer={odometer} onSubmit={onSubmit}></Odometer>
+        <Odometer className={s.odometer} odometer={odometer} onSubmit={onSubmit} />
         {/* <Odometer onChange={saveOdometer} value={odometer}></Odometer> */}
         <p>
           Last odometer value: {odometer}
@@ -27,7 +27,7 @@ function WorkPage({odometer, odometerHistory, onSubmit}) {
           Last work: {odometerHistory.at(-1) ? odometerHistory.at(-1).work : 'none'}
         </p> */}
         <div className={s.records}>
-          {odometerHistory.map(record => <div className={s.record} key={i++}><p>{record.value}</p><p>{record.date}</p><p>{record.work}</p></div>).reverse()}
+          {odometerHistory.map(record => <div key={record.key} className={s.record}><p>{record.value}</p><p>{record.date}</p><p>{record.work}</p></div>).reverse()}
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@ function Odometer({className, odometer, onChange, onSubmit}) {
         <input type='number' id='odometerInput' name='odometerInput' placeholder='New value' onChange={onChange} required autoFocus></input>
         <label htmlFor='odometerText'>Enter description:</label>
         <textarea id='odometerText' name='odometerText' placeholder='New description' required></textarea>
-        <input type='submit' id='odometerSubmit' value="Save"></input>
+        <input type='submit' className={sBtnSave.button} id='odometerSubmit' value="Save"></input>
       </form>
     // {/* </div> */}
   )

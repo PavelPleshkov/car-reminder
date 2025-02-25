@@ -9,14 +9,16 @@ import {useState} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 let odometerHistory = [];
+let key = 0
+
 
 function App() {
-
   class Record {
-    constructor(value, date, work) {
+    constructor(value, date, work, key) {
       this.value = value;
       this.date = date;
-      this.work = work
+      this.work = work;
+      this.key = key
     }
   }
 
@@ -35,11 +37,12 @@ function App() {
     console.log('submitting');
     let input = Array.from(event.target.elements)[0];
     let textarea = Array.from(event.target.elements)[1];
+    key++;
     // console.log(input.value)
     // setOdometer(input.value);
     // setWork(textarea.value);
     // odometerHistory.push(new Record(odometer, getNowDate(), work));
-    odometerHistory.push(new Record(input.value, getNowDate(), textarea.value));
+    odometerHistory.push(new Record(input.value, getNowDate(), textarea.value, key));
     // odometerHistory.push({value: input.value, date: getNowDate()})
     // setOdometer(odometerHistory[odometerHistory.length - 1].value)
     setOdometer(input.value);
@@ -55,7 +58,7 @@ function App() {
           <Routes>
             <Route path='' element={<StartPage odometer={odometer} lastDate={odometer ? odometerHistory[odometerHistory.length - 1].date : ''} />} />
             <Route path='/work' element={<WorkPage odometer={odometer} odometerHistory={odometerHistory} onSubmit={handleOdometerSubmit}/>} />
-            <Route path='/info' element={<Info />} />
+            <Route path='/info' element={<Info odometer={odometer} lastWork={work}/>} />
           </Routes>
         </main>
       </div>
