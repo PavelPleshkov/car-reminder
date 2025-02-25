@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/car-reminder/static/css/main.a57d750e.css",
+    "main.css": "/car-reminder/static/css/main.ffebeecb.css",
     "main.js": "/car-reminder/static/js/main.11b9cb74.js",
     "static/js/488.9a583b4e.chunk.js": "/car-reminder/static/js/488.9a583b4e.chunk.js",
     "index.html": "/car-reminder/index.html",
-    "main.a57d750e.css.map": "/car-reminder/static/css/main.a57d750e.css.map",
+    "main.ffebeecb.css.map": "/car-reminder/static/css/main.ffebeecb.css.map",
     "main.11b9cb74.js.map": "/car-reminder/static/js/main.11b9cb74.js.map",
     "488.9a583b4e.chunk.js.map": "/car-reminder/static/js/488.9a583b4e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a57d750e.css",
+    "static/css/main.ffebeecb.css",
     "static/js/main.11b9cb74.js"
   ]
 }
