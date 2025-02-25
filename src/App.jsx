@@ -56,9 +56,9 @@ function App() {
         <Header />
         <main className='main'>
           <Routes>
-            <Route path='' element={<StartPage odometer={odometer} lastDate={odometer ? odometerHistory[odometerHistory.length - 1].date : ''} />} />
-            <Route path='/work' element={<WorkPage odometer={odometer} odometerHistory={odometerHistory} onSubmit={handleOdometerSubmit}/>} />
-            <Route path='/info' element={<Info odometer={odometer} lastWork={work}/>} />
+            <Route path='/car-reminder' element={<StartPage odometer={odometer} lastDate={odometer ? odometerHistory[odometerHistory.length - 1].date : ''} />} />
+            <Route path='/car-reminder/work' element={<WorkPage odometer={odometer} odometerHistory={odometerHistory} onSubmit={handleOdometerSubmit}/>} />
+            <Route path='/car-reminder/info' element={<Info odometer={odometer} lastWork={work}/>} />
           </Routes>
         </main>
       </div>

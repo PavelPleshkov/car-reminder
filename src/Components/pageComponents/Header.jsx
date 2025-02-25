@@ -7,9 +7,9 @@ function Header() {
     <header className={s.header}>
         <h1>Car reminder</h1>
         <nav className={s.nav}>
-          <NavLink to='' className={({isActive})=> isActive ? s.link + ' ' + s.active : s.link}>Home</NavLink>
-          <NavLink to='/work' className={({isActive})=> isActive ? s.link + ' ' + s.active : s.link}>Work</NavLink>
-          <NavLink to='/info' className={({isActive})=> isActive ? s.link + ' ' + s.active : s.link}>Info</NavLink>
+          <NavLink to='/car-reminder/' className={({isActive})=> isActive ? s.link + ' ' + s.active : s.link}>Home</NavLink>
+          <NavLink to='/car-reminder/work' className={({isActive})=> isActive ? s.link + ' ' + s.active : s.link}>Work</NavLink>
+          <NavLink to='/car-reminder/info' className={({isActive})=> isActive ? s.link + ' ' + s.active : s.link}>Info</NavLink>
         </nav>
       </header>
   )

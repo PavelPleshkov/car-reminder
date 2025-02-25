@@ -15,7 +15,7 @@ function StartPage({odometer, lastDate}) {
       </div> */}
       {/* <StartButton onClick={onClick}></StartButton> */}
       {/* <NavLink to='/work' className={({isActive})=> isActive ? s.active : undefined}>Work</NavLink> */}
-      <NavButton className='startBtn' path='/work' text='Add new record' />
+      <NavButton className='startBtn' path='/car-reminder/work' text='Add new record' />
       <p className={s.lastOdometer}>Last record: {odometer} km   {lastDate}</p>
     </div>
   )
